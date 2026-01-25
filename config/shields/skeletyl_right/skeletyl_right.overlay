@@ -1,0 +1,35 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+	chosen {
+		zmk,kscan = &kscan0;
+		zmk,matrix_transform = &default_transform;
+	};
+
+/*
+ * Copyright (c) 2025 Your Name or Project
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "skeletyl_matrix.dtsi"
+
+&default_transform {
+	col-offset = <5>;
+};
+
+&kscan0 {
+	col-gpios =
+		<&gpio1 11 GPIO_ACTIVE_HIGH>
+		, <&gpio0 22 GPIO_ACTIVE_HIGH>
+		, <&gpio0 20 GPIO_ACTIVE_HIGH>
+		, <&gpio0 6 GPIO_ACTIVE_HIGH>
+		, <&gpio0 8 GPIO_ACTIVE_HIGH>
+		;
+	row-gpios =
+		<&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+		, <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+		, <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+		, <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+		;
+};
