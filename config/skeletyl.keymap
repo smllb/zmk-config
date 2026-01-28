@@ -346,10 +346,10 @@
 
         tab_layer {
             bindings = <
-                &trans &kp ESC       &none         &kp LS(TAB)   &kp TAB       &none         &none         &none         &none         &none         &none &trans
-                &trans &kp CAPS      &kp F5         &kp LA(LS(TAB)) &kp LA(TAB) &none         &none         &none         &none         &none         &none &trans
-                &trans &none         &none         &none         &none         &none         &none         &none         &none         &none         &none &trans
-                &kp LGUI         &none         &none         &kp F5         &none         &none
+                &trans &kp ESC       &none         &kp LS(TAB)     &kp TAB       &none         &none         &none         &none         &none         &none &trans
+                &trans &kp CAPS      &kp F5        &kp LA(LS(TAB)) &kp LA(TAB) &none         &none         &none         &none         &none         &none &trans
+                &trans &none         &kt LALT      &kp LS(TAB)     &kp TAB         &none         &none         &none         &none         &none         &none &trans
+                &kp LGUI             &none         &none           &kp F5         &none         &none
             >;
         };
 
