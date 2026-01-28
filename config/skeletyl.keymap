@@ -100,40 +100,6 @@
             bindings = <&kp>, <&kp>;
         };
         
-        // Long sticky key behavior - 15 seconds
-        long_sk: sticky_key_long {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            release-after-ms = <30000>;
-            bindings = <&kp>;
-            quick-release;
-
-
-        };
-
-        auto_move: auto_move {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kt W>;
-        };
-
-                // Tap dance: G on single tap, T on double tap with short tapping term
-        grenade_mask: grenade_mask {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>; // Short tapping term
-            bindings = <&kp G>, <&kp T>;
-        };
-        
-        // Tap dance: R on single tap, N1 on double tap with short tapping term
-        reload_weapon: reload_weapon {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <140>; // Even shorter tapping term
-            bindings = <&kp R>, <&kp N1>;
-        };
-        // Removed tap-dance related code
-        
         
         /**
         * Temporarily switches to a layer (`&mo`) while a modifier is held.
@@ -218,62 +184,16 @@
                 >;
             };
 
-        paste_git_token: paste_git_token {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <
-                &kp LC(RA(P))
-            >;
-        };
-
-            
             lock_session: lock_session {
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings = <&kp LC(LA(L))>;  // Ctrl+Alt+L to lock session on Linux Mint
             };
             
-            quick_melee: quick_melee {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp V>;  // V is default melee in Overwatch
-            };
-            
-            quick_hello: quick_hello {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp LC(C)>;  // Ctrl+C is a common binding for "Hello" in Overwatch
-            };
-            
-            toggle_gaming: toggle_gaming {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&tog GAMING>;  // Toggle gaming layer
-            };
-            
             alt_f4: alt_f4 {
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings = <&kp LA(F4)>;  // Alt+F4 to close windows
-            };
-
-
-            heal: heal {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <
-                    &macro_tap &kp N3
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                >;
             };
 
     };
@@ -283,10 +203,10 @@
 
         default_layer {
             bindings = <
-                &kp BSPC       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &kp LC(BSPC)
-                &mo SYMBOL    &mtb LSHIFT A &kp S         &mt LCTRL D   &kp F         &kp G         &kp H         &lt SYMBOL  J         &lt SYMBOL K   &kp L         &qt LSHIFT 0 &tog NAVIGATION
+                &kp ESC       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &tog NAVIGATION
+                &kp BSPC    &mtb LSHIFT A &kp S         &mt LCTRL D   &kp F         &kp G         &kp H         &lt SYMBOL  J         &lt SYMBOL K   &kp L         &qt LSHIFT 0 &kp LC(BSPC) 
                 &kp LCTRL     &mt LCTRL Z   &mt RCTRL X    &lt NUMBER C &lt NUMBER V         &kp B         &kp N         &lt NUMBER M         &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &none
-                &lt SYMBOL X         &none         &kp SPACE    &kp ENTER     &tog_mo NAVIGATION NAVIGATION     &tog_mo MEDIA MEDIA
+                                &lt SYMBOL X         &none         &kp SPACE    &kp ENTER     &tog_mo NAVIGATION NAVIGATION     &tog_mo MEDIA MEDIA
             >;
         };
 
@@ -301,7 +221,7 @@
 
         navigation_layer {
             bindings = <
-                &trans &kp A         &kp V         &kp LALT &kp TAB       &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT     &kp BSPC &trans
+                &trans &kp A         &kp V         &kp LALT &kp TAB       &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT     &kp BSPC &to DEFAULT
                 &trans &kp LSHIFT    &kp X         &kp C    &kp LCTRL     &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END       &kp PG_UP &trans
                 &trans &kp Z         &none         &kp F4   &kp F5        &none         &kp D         &kp HOME      &kp F         &kp Y         &kp PG_DN &trans
                 &none         &kp SLASH     &kp SPACE     &kp ENTER     &to 0    &kp DEL
