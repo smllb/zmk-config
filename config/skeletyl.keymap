@@ -23,6 +23,21 @@
 
 / {
     behaviors {
+
+        td_lctrl: tap_dance_lctrl {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LCTRL>, <&kt LCTRL>;
+        };
+
+        td_lshft: tap_dance_lshft {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kt LSHFT>;
+        };
+
         // Mod-morph to select between single and double quotes macros
         mm_quotes: mm_quotes {
             compatible = "zmk,behavior-mod-morph";
@@ -203,9 +218,9 @@
 
         default_layer {
             bindings = <
-                &kp ESC       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &tog NAVIGATION
+                &kp LEFT       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &RIGHT
                 &kp BSPC    &mtb LSHIFT A &kp S         &mt LCTRL D   &kp F         &kp G         &kp H         &lt SYMBOL  J         &lt SYMBOL K   &kp L         &qt LSHIFT 0 &kp LC(BSPC) 
-                &kp LCTRL     &mt LCTRL Z   &mt RCTRL X    &lt NUMBER C &lt NUMBER V         &kp B         &kp N         &lt NUMBER M         &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &none
+                &kp UP     &mt LCTRL Z   &mt RCTRL X    &lt NUMBER C &lt NUMBER V         &kp B         &kp N         &lt NUMBER M         &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &kp DOWN
                                 &lt SYMBOL X         &none         &kp SPACE    &kp ENTER     &tog_mo NAVIGATION NAVIGATION     &tog_mo MEDIA MEDIA
             >;
         };
@@ -222,9 +237,9 @@
         navigation_layer {
             bindings = <
                 &trans &kp A         &kp V         &kp LALT &kp TAB       &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT     &kp BSPC &to DEFAULT
-                &trans &kp LSHIFT    &kp X         &kp C    &kp LCTRL     &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END       &kp PG_UP &trans
+                &trans &td_lshft    &kp X         &kp C    &td_lctrl     &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END       &kp PG_UP &trans
                 &trans &kp Z         &none         &kp F4   &kp F5        &none         &kp D         &kp HOME      &kp F         &kp Y         &kp PG_DN &trans
-                &none         &kp SLASH     &kp SPACE     &kp ENTER     &to 0    &kp DEL
+                &trans         &kp SLASH     &kp SPACE     &kp ENTER     &to 0    &kp DEL
             >;
         };
 
