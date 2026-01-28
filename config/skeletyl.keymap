@@ -18,8 +18,8 @@
 #define NUMBER 3
 #define FUNCTION 4
 #define MEDIA 5
-#define BT 7
-#define TAB_LAYER 8
+#define BT 6
+#define TAB_LAYER 7
 
 / {
     behaviors {
