@@ -229,16 +229,16 @@
             bindings = <
                 &trans           &kp TILDE       &kp EXCL        &lt NUMBER AT   &kp DLLR       &kp AMPS      &kp RBKT      &kp COLON      &lt NUMBER SEMI &kp MINUS      &kp EQUAL      &trans
                 &trans           &kp HASH        &kp CARET       &lt SYMBOL PRCNT &kp ASTRK     &trans        &kp LBKT      &kp LPAR       &lt SYMBOL RPAR &kp UNDER      &kp PLUS       &trans
-                &trans           &trans          &trans          &trans         &trans        &trans        &kp BSLH      &kp LBRC       &kp RBRC      &kp PIPE       &trans         &trans
+                &trans           &trans          &kp LC(LS(O))          &trans         &trans        &trans        &kp BSLH      &kp LBRC       &kp RBRC      &kp PIPE       &trans         &trans
                             &trans           &trans          &trans          &trans         &kp BSPC      &trans
             >;
         };
 
         navigation_layer {
             bindings = <
-                &trans           &kp A           &kp V           &kp LALT      &kp TAB        &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT      &kp BSPC       &to DEFAULT
-                &trans           &td_lshft       &kp X           &kp C         &td_lctrl      &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END        &kp PG_UP      &trans
-                &trans           &kp Z           &none           &kp F4        &kp F5         &none         &kp D         &kp HOME      &kp F         &kp Y          &kp PG_DN      &trans
+                &kp F9          &kp A           &kp V           &kp LALT      &kp TAB        &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT      &kp BSPC       &to DEFAULT
+                &kp F8           &td_lshft       &kp X           &kp C         &td_lctrl      &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END        &kp PG_UP      &kp LC(F2)
+                &kp F7           &kp Z           &none           &kp F4        &kp F5         &none         &kp D         &kp HOME      &kp F         &kp Y          &kp PG_DN      &kp LS(F8)
                         &trans           &kp SLASH       &kp SPACE       &kp ENTER     &to 0          &kp DEL
             >;
         };
