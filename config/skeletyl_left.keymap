@@ -18,8 +18,10 @@
 #define NUMBER 3
 #define FUNCTION 4
 #define MEDIA 5
+#define GAMING 6
 #define BT 7
 #define TAB_LAYER 8
+#define BATTLEFIELD 9
 
 / {
     behaviors {
@@ -283,8 +285,8 @@
 
         default_layer {
             bindings = <
-                &kp BSPC       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &kp LC(BSPC)
-                &mo SYMBOL    &mtb LSHIFT A &kp S         &mt LCTRL D   &kp F         &kp G         &kp H         &lt SYMBOL  J         &lt SYMBOL K   &kp L         &qt LSHIFT 0 &tog NAVIGATION
+                &kp ESC       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &kp BSPC
+                &mo SYMBOL    &mtb LSHIFT A &kp S         &mt LCTRL D   &kp F         &kp G         &kp H         &lt SYMBOL  J         &lt SYMBOL K   &kp L         &qt LSHIFT 0 &kp LC(BSPC)
                 &kp LCTRL     &mt LCTRL Z   &mt RCTRL X    &lt NUMBER C &lt NUMBER V         &kp B         &kp N         &lt NUMBER M         &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &none
                 &lt SYMBOL X         &none         &kp SPACE    &kp ENTER     &tog_mo NAVIGATION NAVIGATION     &tog_mo MEDIA MEDIA
             >;
@@ -335,6 +337,15 @@
             >;
         };
 
+        gaming_layer {
+            bindings = <
+                &trans &kp ESC       &kp Q         &kp W    &kp E         &kp R         &kp N2        &kp N3        &lt NUMBER I    &kp O         &to DEFAULT &trans
+                &trans &kp LSHIFT  &kp A         &kp S    &kp D         &kp N4        &kp N5        &kp H         &lt SYMBOL J    &kp L         &kp RET &trans
+                &trans &long_sk W    &kp Z         &kp X  &kp C         &kp V         &quick_hello  &kp M         &lt FUNCTION TAB &kp DOT      &to DEFAULT &trans
+                &kp TAB  &kp LCTRL     &kp SPACE     &kp Q         &quick_melee   &kp F
+            >;
+        };
+
         BT {
             bindings = <
                 &trans &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &none         &none       &none        &none            &none &trans
@@ -353,13 +364,14 @@
             >;
         };
 
-        debug {
+        battlefield {
             bindings = <
-                &trans &trans        &trans        &trans        &trans        &trans        &kp C_PREV    &kp C_VOL_DN     &kp I      &kp C_VOL_UP  &kp C_NEXT &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &trans           &trans        &trans        &trans        &trans &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &kp C_MUTE       &trans        &trans        &trans        &trans &trans
-                &none         &to DEFAULT   &none         &none         &none         &to DEFAULT
+                &trans &kp ESC       &kp Q         &kp W         &kp E         &reload_weapon &none        &none        &none           &none         &none &trans
+                &trans &kp LSHIFT    &kp A         &kp S         &kp D         &kp N1        &none        &none        &none           &none         &none &trans
+                &trans &auto_move    &kp LCTRL     &kp X         &kp N2        &grenade_mask &none        &none        &none           &none         &none &trans
+                &kp TAB       &kp LCTRL     &kp SPACE     &kp Q         &quick_melee  &none
             >;
         };
+
     };
 };
