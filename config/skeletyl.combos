@@ -130,11 +130,6 @@
             key-positions = <16 19>; // F + K
             bindings = <&kp LGUI>;
         };
-        combo_git_token_xdot {
-            timeout-ms = <50>;
-            key-positions = <26 33>; // X + DOT working
-            bindings = <&paste_git_token>;
-        };
         
         combo_double_shift_a_apos {
             timeout-ms = <50>;

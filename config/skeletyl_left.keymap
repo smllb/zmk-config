@@ -218,12 +218,13 @@
 
         default_layer {
             bindings = <
-                &kp LEFT        &kp Q           &mt RSHIFT W    &lt SYMBOL E   &lt SYMBOL R     &kp T         &mm_y_bspc     &mm_u_bspc     &mm_i_bspc     &mm_o_bspc     &lt TAB_LAYER P   &RIGHT
+                &kp LEFT        &kp Q           &mt RSHIFT W    &lt SYMBOL E   &lt SYMBOL R     &kp T         &mm_y_bspc     &mm_u_bspc     &mm_i_bspc     &mm_o_bspc     &lt TAB_LAYER P   &kp RIGHT
                 &kp BSPC        &mtb LSHIFT A   &kp S           &mt LCTRL D    &kp F          &kp G         &kp H          &lt SYMBOL J     &lt SYMBOL K     &kp L          &qt LSHIFT 0    &kp LC(BSPC)
                 &kp UP          &mt LCTRL Z     &mt RCTRL X     &lt NUMBER C     &lt NUMBER V     &kp B         &kp N          &lt NUMBER M     &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &kp DOWN
                                  &lt SYMBOL X      &none           &kp SPACE      &kp ENTER      &tog_mo NAVIGATION NAVIGATION   &tog_mo MEDIA MEDIA
             >;
         };
+
 
         symbol_layer {
             bindings = <
