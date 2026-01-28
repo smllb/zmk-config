@@ -18,13 +18,26 @@
 #define NUMBER 3
 #define FUNCTION 4
 #define MEDIA 5
-#define GAMING 6
 #define BT 7
 #define TAB_LAYER 8
-#define BATTLEFIELD 9
 
 / {
     behaviors {
+
+        td_lctrl: tap_dance_lctrl {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LCTRL>, <&kt LCTRL>;
+        };
+
+        td_lshft: tap_dance_lshft {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kt LSHFT>;
+        };
+
         // Mod-morph to select between single and double quotes macros
         mm_quotes: mm_quotes {
             compatible = "zmk,behavior-mod-morph";
@@ -101,40 +114,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
         };
-        
-        // Long sticky key behavior - 15 seconds
-        long_sk: sticky_key_long {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            release-after-ms = <30000>;
-            bindings = <&kp>;
-            quick-release;
-
-
-        };
-
-        auto_move: auto_move {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kt W>;
-        };
-
-                // Tap dance: G on single tap, T on double tap with short tapping term
-        grenade_mask: grenade_mask {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>; // Short tapping term
-            bindings = <&kp G>, <&kp T>;
-        };
-        
-        // Tap dance: R on single tap, N1 on double tap with short tapping term
-        reload_weapon: reload_weapon {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <140>; // Even shorter tapping term
-            bindings = <&kp R>, <&kp N1>;
-        };
-        // Removed tap-dance related code
         
         
         /**
@@ -220,62 +199,16 @@
                 >;
             };
 
-        paste_git_token: paste_git_token {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <
-                &kp LC(RA(P))
-            >;
-        };
-
-            
             lock_session: lock_session {
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings = <&kp LC(LA(L))>;  // Ctrl+Alt+L to lock session on Linux Mint
             };
             
-            quick_melee: quick_melee {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp V>;  // V is default melee in Overwatch
-            };
-            
-            quick_hello: quick_hello {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp LC(C)>;  // Ctrl+C is a common binding for "Hello" in Overwatch
-            };
-            
-            toggle_gaming: toggle_gaming {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&tog GAMING>;  // Toggle gaming layer
-            };
-            
             alt_f4: alt_f4 {
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings = <&kp LA(F4)>;  // Alt+F4 to close windows
-            };
-
-
-            heal: heal {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <
-                    &macro_tap &kp N3
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                    &macro_wait_time 50
-                    &macro_tap &kp N4
-                >;
             };
 
     };
@@ -285,93 +218,83 @@
 
         default_layer {
             bindings = <
-                &kp ESC       &kp Q         &mt RSHIFT W         &lt SYMBOL E   &lt SYMBOL R         &kp T         &mm_y_bspc &mm_u_bspc &mm_i_bspc   &mm_o_bspc &lt TAB_LAYER P &kp BSPC
-                &mo SYMBOL    &mtb LSHIFT A &kp S         &mt LCTRL D   &kp F         &kp G         &kp H         &lt SYMBOL  J         &lt SYMBOL K   &kp L         &qt LSHIFT 0 &kp LC(BSPC)
-                &kp LCTRL     &mt LCTRL Z   &mt RCTRL X    &lt NUMBER C &lt NUMBER V         &kp B         &kp N         &lt NUMBER M         &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &none
-                &lt SYMBOL X         &none         &kp SPACE    &kp ENTER     &tog_mo NAVIGATION NAVIGATION     &tog_mo MEDIA MEDIA
+                &kp LEFT        &kp Q           &mt RSHIFT W    &lt SYMBOL E   &lt SYMBOL R     &kp T         &mm_y_bspc     &mm_u_bspc     &mm_i_bspc     &mm_o_bspc     &lt TAB_LAYER P   &RIGHT
+                &kp BSPC        &mtb LSHIFT A   &kp S           &mt LCTRL D    &kp F          &kp G         &kp H          &lt SYMBOL J     &lt SYMBOL K     &kp L          &qt LSHIFT 0    &kp LC(BSPC)
+                &kp UP          &mt LCTRL Z     &mt RCTRL X     &lt NUMBER C     &lt NUMBER V     &kp B         &kp N          &lt NUMBER M     &lt NUMBER COMMA &mt RCTRL DOT   &mt LCTRL SLASH &kp DOWN
+                                 &lt SYMBOL X      &none           &kp SPACE      &kp ENTER      &tog_mo NAVIGATION NAVIGATION   &tog_mo MEDIA MEDIA
             >;
         };
 
         symbol_layer {
             bindings = <
-                &trans &kp TILDE     &kp EXCL      &lt NUMBER AT  &kp DLLR      &kp AMPS      &kp RBKT      &kp COLON     &lt NUMBER SEMI &kp MINUS     &kp EQUAL &trans
-                &trans &kp HASH      &kp CARET     &lt SYMBOL PRCNT &kp ASTRK    &trans        &kp LBKT      &kp LPAR      &lt SYMBOL RPAR &kp UNDER     &kp PLUS &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &kp BSLH      &kp LBRC      &kp RBRC        &kp PIPE      &trans &trans
-                &trans        &trans        &trans        &trans        &kp BSPC      &trans
+                &trans           &kp TILDE       &kp EXCL        &lt NUMBER AT   &kp DLLR       &kp AMPS      &kp RBKT      &kp COLON      &lt NUMBER SEMI &kp MINUS      &kp EQUAL      &trans
+                &trans           &kp HASH        &kp CARET       &lt SYMBOL PRCNT &kp ASTRK     &trans        &kp LBKT      &kp LPAR       &lt SYMBOL RPAR &kp UNDER      &kp PLUS       &trans
+                &trans           &trans          &trans          &trans         &trans        &trans        &kp BSLH      &kp LBRC       &kp RBRC      &kp PIPE       &trans         &trans
+                            &trans           &trans          &trans          &trans         &kp BSPC      &trans
             >;
         };
 
         navigation_layer {
             bindings = <
-                &trans &kp A         &kp V         &kp LALT &kp TAB       &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT     &kp BSPC &trans
-                &trans &kp LSHIFT    &kp X         &kp C    &kp LCTRL     &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END       &kp PG_UP &trans
-                &trans &kp Z         &none         &kp F4   &kp F5        &none         &kp D         &kp HOME      &kp F         &kp Y         &kp PG_DN &trans
-                &none         &kp SLASH     &kp SPACE     &kp ENTER     &to 0    &kp DEL
+                &trans           &kp A           &kp V           &kp LALT      &kp TAB        &none         &kp R         &kp BSPC      &kp UP        &kp RIGHT      &kp BSPC       &to DEFAULT
+                &trans           &td_lshft       &kp X           &kp C         &td_lctrl      &kp G         &kp B         &kp LEFT      &kp DOWN      &kp END        &kp PG_UP      &trans
+                &trans           &kp Z           &none           &kp F4        &kp F5         &none         &kp D         &kp HOME      &kp F         &kp Y          &kp PG_DN      &trans
+                        &trans           &kp SLASH       &kp SPACE       &kp ENTER     &to 0          &kp DEL
             >;
         };
 
         num_layer {
             bindings = <
-                &trans &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0 &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans &trans
-                &trans        &trans        &trans        &trans        &kp BSPC      &trans
+                &trans           &kp N1          &kp N2          &kp N3         &kp N4         &kp N5         &kp N6         &kp N7         &kp N8         &kp N9         &kp N0         &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                            &trans           &trans          &trans          &trans         &kp BSPC       &trans
             >;
         };
 
         fn_layer {
             bindings = <
-                &trans &kp F1        &kp F2        &lt NUMBER F3   &kp F4        &kp F5        &kp F6        &kp F7        &lt NUMBER F8   &kp F9        &kp F10 &trans
-                &trans &kp F11       &kp F12       &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans &trans
-                &trans        &trans        &trans        &trans        &kp BSPC      &trans
+                &trans           &kp F1          &kp F2          &lt NUMBER F3    &kp F4         &kp F5         &kp F6         &kp F7         &lt NUMBER F8    &kp F9         &kp F10        &trans
+                &trans           &kp F11         &kp F12         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                            &trans           &trans          &trans          &trans         &kp BSPC       &trans
             >;
         };
 
         general_media {
             bindings = <
-                &trans &trans        &trans        &trans        &trans        &trans        &kp C_PREV    &kp C_VOL_DN     &kp I      &kp C_VOL_UP  &kp C_NEXT &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &trans           &trans        &trans        &trans        &trans &trans
-                &trans &trans        &trans        &trans        &trans        &trans        &kp C_MUTE       &trans        &trans        &trans        &trans &trans
-                &none         &to DEFAULT   &none         &none         &none         &to DEFAULT
-            >;
-        };
-
-        gaming_layer {
-            bindings = <
-                &trans &kp ESC       &kp Q         &kp W    &kp E         &kp R         &kp N2        &kp N3        &lt NUMBER I    &kp O         &to DEFAULT &trans
-                &trans &kp LSHIFT  &kp A         &kp S    &kp D         &kp N4        &kp N5        &kp H         &lt SYMBOL J    &kp L         &kp RET &trans
-                &trans &long_sk W    &kp Z         &kp X  &kp C         &kp V         &quick_hello  &kp M         &lt FUNCTION TAB &kp DOT      &to DEFAULT &trans
-                &kp TAB  &kp LCTRL     &kp SPACE     &kp Q         &quick_melee   &kp F
+                &trans           &trans          &trans          &trans         &trans         &trans         &kp C_PREV      &kp C_VOL_DN    &kp I          &kp C_VOL_UP    &kp C_NEXT      &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &trans          &trans          &trans          &trans          &trans         &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &kp C_MUTE      &trans          &trans          &trans          &trans         &trans
+                            &none            &to DEFAULT     &none           &none          &none          &to DEFAULT
             >;
         };
 
         BT {
             bindings = <
-                &trans &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &none         &none       &none        &none            &none &trans
-                &trans &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4         &none         &none         &none         &bt BT_NXT      &none &trans
-                &trans &none       &none         &none         &none         &none         &bt BT_CLR         &bt BT_PRV         &none         &none         &none &trans
-                &to DEFAULT         &none         &none         &none         &none         &to DEFAULT
+                &trans           &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &none         &none         &none         &none         &none         &trans
+                &trans           &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &none         &none         &none         &bt BT_NXT    &none         &trans
+                &trans           &none           &none           &none          &none          &none          &bt BT_CLR    &bt BT_PRV    &none         &none         &none         &trans
+                            &to DEFAULT      &none           &none           &none          &none          &to DEFAULT
             >;
         };
 
         tab_layer {
             bindings = <
-                &trans &kp ESC       &none         &kp LS(TAB)     &kp TAB       &none         &none         &none         &none         &none         &none &trans
-                &trans &kp CAPS      &kp F5        &kp LA(LS(TAB)) &kp LA(TAB) &none         &none         &none         &none         &none         &none &trans
-                &trans &none         &kt LALT      &kp LS(TAB)     &kp TAB         &none         &none         &none         &none         &none         &none &trans
-                &kp LGUI             &none         &none           &kp F5         &none         &none
+                &trans           &kp ESC         &none           &kp LS(TAB)    &kp TAB        &none         &none         &none         &none         &none         &none         &trans
+                &trans           &kp CAPS        &kp F5          &kp LA(LS(TAB)) &kp LA(TAB)   &none         &none         &none         &none         &none         &none         &trans
+                &trans           &none           &kt LALT        &kp LS(TAB)    &kp TAB        &none         &none         &none         &none         &none         &none         &trans
+                            &kp LGUI         &none           &none           &kp F5         &none         &none
             >;
         };
 
-        battlefield {
+        debug {
             bindings = <
-                &trans &kp ESC       &kp Q         &kp W         &kp E         &reload_weapon &none        &none        &none           &none         &none &trans
-                &trans &kp LSHIFT    &kp A         &kp S         &kp D         &kp N1        &none        &none        &none           &none         &none &trans
-                &trans &auto_move    &kp LCTRL     &kp X         &kp N2        &grenade_mask &none        &none        &none           &none         &none &trans
-                &kp TAB       &kp LCTRL     &kp SPACE     &kp Q         &quick_melee  &none
+                &trans           &trans          &trans          &trans         &trans         &trans         &kp C_PREV      &kp C_VOL_DN    &kp I          &kp C_VOL_UP    &kp C_NEXT      &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &trans          &trans          &trans          &trans          &trans         &trans
+                &trans           &trans          &trans          &trans         &trans         &trans         &kp C_MUTE      &trans          &trans          &trans          &trans         &trans
+                            &none            &to DEFAULT     &none           &none          &none          &to DEFAULT
             >;
         };
-
     };
 };
