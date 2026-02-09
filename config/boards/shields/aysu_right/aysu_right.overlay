@@ -1,0 +1,26 @@
+// skeletyl_right.overlay
+
+#include "../../../aysu.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan0 {
+    col-gpios
+        = <&gpio0 2 GPIO_ACTIVE_HIGH>  // Col 1 (Red, D19)
+        , <&gpio0 10 GPIO_ACTIVE_HIGH> // Col 2 (Blue, D16)
+        , <&gpio1 15 GPIO_ACTIVE_HIGH> // Col 3 (Orange, D18)
+        , <&gpio1 13 GPIO_ACTIVE_HIGH> // Col 4 (Yellow, D15)
+        , <&gpio1 11 GPIO_ACTIVE_HIGH> // Col 5 (Green, D14)
+        , <&gpio0 29 GPIO_ACTIVE_HIGH> // Col 6 (Brown, D20)
+        ;
+
+    row-gpios
+        = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 1 (Yellow, D6)
+        , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2 (Orange, D5)
+        , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3 (Purple, D4)
+        , <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 4 (Green, D8)
+        , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 5 (Gray, D7)
+        ;
+};

@@ -1,0 +1,6 @@
+if SHIELD_AYSU_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Aysu"
+
+endif
