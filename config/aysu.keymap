@@ -20,24 +20,95 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        print {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <10 11>;
+        };
+
+        open_gui {
+            bindings = <&kp LEFT_GUI>;
+            key-positions = <28 31>;
+        };
+
+        tog_media {
+            bindings = <&tog 3>;
+            key-positions = <22 21>;
+        };
+
+        terminal {
+            bindings = <&kp LC(LA(T))>;
+            key-positions = <27 32>;
+        };
+
+        altf4 {
+            bindings = <&kp LA(F4)>;
+            key-positions = <14 32>;
+        };
+
+        bscp_right {
+            bindings = <&kp LC(BSPC)>;
+            key-positions = <55 54>;
+        };
+
+        jump_right {
+            bindings = <&kp LC(RIGHT)>;
+            key-positions = <46 47>;
+        };
+
+        jump_left {
+            bindings = <&kp LC(LEFT)>;
+            key-positions = <34 35>;
+        };
+
+        right_end {
+            bindings = <&kp END>;
+            key-positions = <45 46>;
+        };
+
+        right_home {
+            bindings = <&kp HOME>;
+            key-positions = <33 34>;
+        };
+
+        tog_debug {
+            bindings = <&tog 4>;
+            key-positions = <46 45>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         alpha {
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp EQUAL  &kp ESC  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp TAB  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp RET  &mtt LSHFT 1  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mtt RSHFT NAV  &kp LCTRL  &kp LALT  &kp SPACE  &kp SPACE  &kp SPACE  &kp SPACE  &kp SPACE  &kp RCTRL
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &mt LEFT_ALT EQUAL  &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp ESCAPE  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp APOS  &kp RET  &mtt LSHFT 1  &mt LEFT_ALT Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &mt RIGHT_ALT FSLH  &mtt RSHFT 2  &kp LCTRL  &kp LALT  &kp SPACE  &kp SPACE  &kp SPACE  &kp SPACE  &kp SPACE  &kp RCTRL
             >;
         };
 
         sym {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp TILDE  &kp EXCL  &lt ALPHA AT  &kp DLLR  &kp AMPS  &kp RBKT  &kp COLON  &lt ALPHA SEMI  &kp MINUS  &kp EQUAL  &trans  &trans  &kp HASH  &kp CARET  &kp PRCNT  &kp ASTRK  &trans  &kp LBKT  &kp LPAR  &kp RPAR  &kp UNDER  &kp PLUS  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp BSLH  &kp LBRC  &kp RBRC  &kp PIPE  &trans  &trans  &tog 1  &tog 1  &trans  &trans  &tog 1  &tog 1  &tog 1  &to 0
+&trans  &trans  &trans  &trans  &kp F4  &kp F5  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp TILDE  &kp EXCL  &lt 0 AT  &kp DLLR  &kp AMPS  &kp RBKT  &kp COLON  &lt 0 SEMI  &kp MINUS  &kp EQUAL  &trans  &trans  &kp HASH  &kp CARET  &kp PRCNT  &kp ASTRK  &trans  &kp LBKT  &kp LPAR  &kp RPAR  &kp UNDER  &kp PLUS  &trans  &tog 1  &trans  &trans  &trans  &trans  &trans  &kp BSLH  &kp LBRC  &kp RBRC  &kp PIPE  &trans  &trans  &tog 1  &tog 1  &trans  &trans  &tog 1  &tog 1  &tog 1  &to 0
             >;
         };
 
         nav {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME  &kp UP  &kp END  &kp PG_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN  &trans  &trans  &trans  &trans  &to 0  &kp DEL  &trans  &trans
+&trans  &trans  &kp F2  &kp F3  &kp F4  &kp F5  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_UP  &kp HOME  &kp UP  &kp END  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PAGE_DOWN  &kp LEFT  &kp DOWN  &kp RIGHT  &tog 2  &trans  &trans  &trans  &trans  &trans  &tog 2  &tog 2  &trans
+            >;
+        };
+
+        media {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K_PREV  &kp C_NEXT  &kp C_FF  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &tog 3  &kp K_VOLUME_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_PLAY_PAUSE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K_VOLUME_DOWN  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        debug {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(TAB)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LS(TAB))  &kp LA(TAB)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(O)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(F2)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp F9  &kp F8  &kp F7  &kp LS(F8)
             >;
         };
     };
