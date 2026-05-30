@@ -8,8 +8,48 @@
 #define SYM 1
 #define NAV 2
 
+// Position lists for positional hold-tap
+// Left-hand keys
+#define KEYS_L  0  1  2  3  4  5  \
+               12 13 14 15 16 17   \
+               24 25 26 27 28 29   \
+               36 37 38 39 40 41
+// Right-hand keys
+#define KEYS_R  6  7  8  9  10 11  \
+               18 19 20 21 22 23   \
+               30 31 32 33 34 35   \
+               42 43 44 45 46 47
+// Thumb keys
+#define THUMBS 48 49 50 51 52 53 54 55
+
 / {
     behaviors {
+        // Left-hand Homerow Mods (u/urob timeless HRM)
+        hml: homerow_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        // Right-hand Homerow Mods
+        hmr: homerow_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
         // Hold -> Key Press (Modifier), Tap -> Toggle Layer
         // Usage: &mtt LSHIFT 1 (Hold Shift, Tap Toggle Layer 1)
 
@@ -20,15 +60,6 @@
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
             bindings = <&kp>, <&tog>;
-        };
-
-        bmt: balanced_mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;    // ZMK Default
-            quick-tap-ms = <0>;        // ZMK Default (Disabled)
-            bindings = <&kp>, <&kp>;
         };
 
         super_vim: super_vim {
@@ -557,7 +588,7 @@
 
         alpha {
             bindings = <
-&kp ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp N7  &kp N8  &kp N9  &kp N0  &tog 0  &mt LEFT_GUI BACKSLASH  &kp Q  &bmt LCTRL W  &bmt LEFT_SHIFT E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp N  &kp M  &kp L  &kp SPACE  &kp RET  &kp LSHFT  &mt LEFT_ALT Z  &kp X  &kp C  &kp V  &kp B  &kp LC(LS(O))  &kp J  &kp K  &kp COMMA  &mt RIGHT_ALT DOT  &mt RIGHT_SHIFT SLASH  &kp LCTRL  &mt (LALT) LC(LS(O))  &mt (LEFT_SHIFT) LC(C)  &mt (TAB) LC(V)  &kp DOWN  &kp UP_ARROW  &kp LEFT  &kp RIGHT
+&kp ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp N7  &kp N8  &kp N9  &kp N0  &tog 0  &mt LEFT_GUI BACKSLASH  &kp Q  &hml LCTRL W  &hml LEFT_SHIFT E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp N  &kp M  &kp L  &kp SPACE  &kp RET  &kp LSHFT  &mt LEFT_ALT Z  &kp X  &kp C  &kp V  &kp B  &kp LC(LS(O))  &kp J  &kp K  &kp COMMA  &mt RIGHT_ALT DOT  &mt RIGHT_SHIFT SLASH  &kp LCTRL  &mt (LALT) LC(LS(O))  &mt (LEFT_SHIFT) LC(C)  &mt (TAB) LC(V)  &kp DOWN  &kp UP_ARROW  &kp LEFT  &kp RIGHT
             >;
         };
 
