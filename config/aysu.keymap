@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define ALPHA 0
@@ -47,6 +48,34 @@
         };
 
         // Usage: &super_vim LGUI VIM_LAYER
+
+        mm_parens: mm_parens {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp RPAR>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mm_braces: mm_braces {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE>, <&kp RBRC>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mm_brackets: mm_brackets {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mm_angles: mm_angles {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN>, <&kp GREATER_THAN>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     macros {
