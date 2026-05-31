@@ -3,7 +3,7 @@
 # --- CONFIGURATION ---
 BOARD="nice_nano@2"
 CONFIG_PATH="/workspaces/zmk-config/config"
-RESULTS_DIR="/workspaces/zmk-config/results"
+RESULTS_DIR="/workspaces/firmware"
 TIMESTAMP=$(date +%s)
 OUTPUT_DIR="$RESULTS_DIR/run-$TIMESTAMP"
 

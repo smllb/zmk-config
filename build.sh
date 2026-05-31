@@ -4,7 +4,7 @@ set -euo pipefail
 BOARD="${BOARD:-nice_nano_v2}"
 SHIELD="aysu"
 CONFIG_PATH="$(cd "$(dirname "$0")/config" && pwd)"
-RESULTS_DIR="$(cd "$(dirname "$0")" && pwd)/results"
+RESULTS_DIR="/workspaces/firmware"
 TIMESTAMP="$(date +%s)"
 OUTPUT_DIR="$RESULTS_DIR/run-$TIMESTAMP"
 ZMK_APP="${ZMK_APP:-/workspaces/zmk/app}"
