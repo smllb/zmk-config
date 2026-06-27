@@ -1,0 +1,6 @@
+if SHIELD_TUPA_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Tupa"
+
+endif

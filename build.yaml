@@ -26,4 +26,8 @@ include:
   - board: nice_nano@2
     shield: choc_right
   - board: nice_nano@2
+    shield: tupa_left
+  - board: nice_nano@2
+    shield: tupa_right
+  - board: nice_nano@2
     shield: settings_reset
