@@ -305,17 +305,17 @@
 
         open_evoke {
             bindings = <&kp LG(U)>;
-            key-positions = <28 32>; // was 28 31
+            key-positions = <28 33>; // was 28 31
         };
 
         terminal {
             bindings = <&kp LG(ENTER)>;
-            key-positions = <27 33>; // was 27 32
+            key-positions = <27 34>; // was 27 32
         };
 
         altf4 {
             bindings = <&kp LG(LS(Q))>;
-            key-positions = <14 33>; // was 14 32
+            key-positions = <14 34>; // was 14 32
         };
 
         end_cluster_right {
@@ -345,7 +345,7 @@
 
         aphos {
             bindings = <&kp APOS>;
-            key-positions = <35 34>; // was 34 33
+            key-positions = <36 35>; // was 34 33
         };
 
         open_curly {
@@ -355,7 +355,7 @@
 
         close_curly {
             bindings = <&kp RBRC>;
-            key-positions = <33 34>; // was 32 33
+            key-positions = <34 35>; // was 32 33
         };
 
         open_round {
@@ -365,7 +365,7 @@
 
         close_round {
             bindings = <&kp RPAR>;
-            key-positions = <33 32>; // was 32 31
+            key-positions = <34 33>; // was 32 31
         };
 
         open_bracket {
@@ -375,7 +375,7 @@
 
         close_bracket {
             bindings = <&kp LEFT_BRACKET>;
-            key-positions = <33 22>; // was 32 22
+            key-positions = <34 22>; // was 32 22
         };
 
         home_cluster_right {
@@ -395,7 +395,7 @@
 
         nuke_line {
             bindings = <&nuke_line>;
-            key-positions = <22 23 34>; // was 22 23 33
+            key-positions = <22 23 35>; // was 22 23 33
         };
 
         ctrl_bscp_right {
@@ -410,7 +410,7 @@
 
         fetch_line_combo {
             bindings = <&fetch_line>;
-            key-positions = <33 22 21>; // was 32 22 21
+            key-positions = <34 22 21>; // was 32 22 21
         };
 
         ctrl_air {
@@ -420,17 +420,17 @@
 
         semai {
             bindings = <&kp SEMICOLON>;
-            key-positions = <35 36>; // was 34 35
+            key-positions = <36 37>; // was 34 35
         };
 
         lesser_than {
             bindings = <&kp LESS_THAN>;
-            key-positions = <46 34>; // was 44 33
+            key-positions = <46 35>; // was 44 33
         };
 
         question_mark {
             bindings = <&kp QUESTION>;
-            key-positions = <47 35>; // was 45 34
+            key-positions = <47 36>; // was 45 34
         };
 
         right_under_score {
@@ -455,7 +455,7 @@
 
         go_to_web {
             bindings = <&cd_web>;
-            key-positions = <34 46 35>; // was 33 44 34
+            key-positions = <35 46 36>; // was 33 44 34
         };
 
         terminal_neo_fetch {
@@ -475,7 +475,7 @@
 
         next_key_caps_right {
             bindings = <&caps_word>;
-            key-positions = <32 21>; // was 31 21
+            key-positions = <33 21>; // was 31 21
         };
 
         copy_all_tab {
@@ -500,27 +500,27 @@
 
         next_line {
             bindings = <&kp LS(ENTER)>;
-            key-positions = <36 35 47>; // was 35 34 45
+            key-positions = <37 36 47>; // was 35 34 45
         };
 
         right_side_underscore {
             bindings = <&kp UNDER>;
-            key-positions = <33 21>; // was 32 21
+            key-positions = <34 21>; // was 32 21
         };
 
         right_side_colon {
             bindings = <&kp COLON>;
-            key-positions = <33 34 45>; // was 32 33 43
+            key-positions = <34 35 45>; // was 32 33 43
         };
 
         right_side_equal_sign {
             bindings = <&kp EQUAL>;
-            key-positions = <31 19>; // was 30 19
+            key-positions = <32 19>; // was 30 19
         };
 
         grab_ocr {
             bindings = <&kp LS(LC(I))>;
-            key-positions = <15 28 32 20>; // was 15 28 31 20
+            key-positions = <15 28 33 20>; // was 15 28 31 20
         };
 
         left_side_middle_mouse_click {
@@ -540,7 +540,7 @@
 
         toggle_dash {
             bindings = <&kp MINUS>;
-            key-positions = <45 33>; // was 43 32
+            key-positions = <45 34>; // was 43 32
         };
 
         nuke_tile {
@@ -570,7 +570,7 @@
 
         open_top {
             bindings = <&kp LG(D)>;
-            key-positions = <29 31>; // was 29 30
+            key-positions = <29 32>; // was 29 30
         };
 
         focus_desk_one {
@@ -593,12 +593,12 @@
 
         move_right {
             bindings = <&kp LG(LS(RIGHT))>;
-            key-positions = <35 34 27>; // was 34 33 27
+            key-positions = <36 35 27>; // was 34 33 27
         };
 
         move_tile_left {
             bindings = <&kp LG(LS(LEFT))>;
-            key-positions = <34 33 27>; // was 33 32 27
+            key-positions = <35 34 27>; // was 33 32 27
         };
 
         focus_desk_four {
@@ -615,32 +615,32 @@
 
         tabbed {
             bindings = <&kp LG(W)>;
-            key-positions = <29 16 31 19>; // was 29 16 30 19
+            key-positions = <29 16 32 19>; // was 29 16 30 19
         };
 
         split {
             bindings = <&kp LG(E)>;
-            key-positions = <43 28 44 32>; // was 41 28 42 31
+            key-positions = <43 28 44 33>; // was 41 28 42 31
         };
 
         big {
             bindings = <&kp LG(F)>;
-            key-positions = <13 26 34 22>; // was 13 26 33 22
+            key-positions = <13 26 35 22>; // was 13 26 33 22
         };
 
         floats {
             bindings = <&kp LG(LS(LC(SPACE)))>;
-            key-positions = <14 27 33 21>; // was 14 27 32 21
+            key-positions = <14 27 34 21>; // was 14 27 32 21
         };
 
         toggle_bt {
             bindings = <&tog 4>;
-            key-positions = <13 14 27 22 21 33>; // was 13 14 27 22 21 32
+            key-positions = <13 14 27 22 21 34>; // was 13 14 27 22 21 32
         };
 
         ground_self {
             bindings = <&to 0>;
-            key-positions = <24 36>; // was 24 35
+            key-positions = <24 37>; // was 24 35
         };
 
         next_horizontal {
@@ -650,17 +650,17 @@
 
         next_vertical {
             bindings = <&kp LG(V)>;
-            key-positions = <24 25 36 35>; // was 24 25 35 34
+            key-positions = <24 25 37 36>; // was 24 25 35 34
         };
 
         toggle_recites {
             bindings = <&kp LG(R)>;
-            key-positions = <43 28 27 44 32 33>; // was 41 28 27 42 31 32
+            key-positions = <43 28 27 44 33 34>; // was 41 28 27 42 31 32
         };
 
         send_plus {
             bindings = <&kp PLUS>;
-            key-positions = <44 32>; // was 42 31
+            key-positions = <44 33>; // was 42 31
         };
 
         reload_split {
