@@ -1,6 +1,6 @@
 if SHIELD_TUPA_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    default "Tupa"
+    default "sundanese"
 
 endif
