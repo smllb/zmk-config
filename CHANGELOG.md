@@ -9,7 +9,7 @@
 - Add: tab_mode and split_mode combos (LG(W) and LG(E))
 
 ### 2025-07-05
-- Rename BT device name: Tupa → harlot
+- Rename BT device name: Tupa → siraya
 - Shift right side row 4 keys right by 1 position
 - Fix info.json: right side x-offsets aligned vertically
 
