@@ -1,5 +1,2 @@
 results
-config/skeletyl_right.uf2
-config/skeletyl_right.keymap
-config/skeletyl_left.keymap
-config/skeletyl_left.keymap
+*.uf2

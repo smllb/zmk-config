@@ -1,6 +1,6 @@
 {
-  "keyboard_name": "Tupa",
-  "url": "",
+  "keyboard_name": "harlot",
+  "url": "https://github.com/smllb/zmk-config",
   "maintainer": "smllb",
   "manufacturer": "Yggdrasil",
   "type": "split",

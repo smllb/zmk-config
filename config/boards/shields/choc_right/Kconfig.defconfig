@@ -1,6 +1,0 @@
-if SHIELD_CHOC_RIGHT
-
-config ZMK_KEYBOARD_NAME
-    default "Choc Right"
-
-endif
