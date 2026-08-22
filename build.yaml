@@ -19,9 +19,9 @@
 #
 ---
 include:
-  - board: nice_nano_v2
-    shield: skeletyl_left
-  - board: nice_nano_v2
-    shield: skeletyl_right
-  - board: nice_nano_v2
+  - board: nice_nano@2
+    shield: tupa_left
+  - board: nice_nano@2
+    shield: tupa_right
+  - board: nice_nano@2
     shield: settings_reset
